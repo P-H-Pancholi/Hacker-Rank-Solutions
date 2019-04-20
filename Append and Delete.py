@@ -7,7 +7,7 @@ def readchar(list,i=0):
 		return char
 
 string1 = list('mukund')
-string2 = list('muk')
+string2 = list('mukund')
 
 def get_cost(string1,string2):
 	if len(string2) > len(string1):
