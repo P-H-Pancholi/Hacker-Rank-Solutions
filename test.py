@@ -1,3 +1,6 @@
-list = [1,1,2,3,4]
-list.remove(1)
-print(list)
+a = '10101'
+a = int(a,2)
+b = '11101'
+b = int(b,2)
+c = bin(a|b)
+print(c.count('1'))
