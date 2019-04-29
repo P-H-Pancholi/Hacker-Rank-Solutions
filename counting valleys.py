@@ -1,5 +1,4 @@
 n = int(input())
-<<<<<<< HEAD
 path = list(input())
 level = 0
 valleys = 0
