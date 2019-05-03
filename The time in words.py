@@ -29,7 +29,7 @@ number_to_words = {
 "27":"twenty seven",
 "28":"twenty eight",
 "29":"twenty nine",
-"30":"thirty",
+"30":"half past",
 }
 
 hrs = input()
@@ -37,8 +37,10 @@ minutes = input()
 
 if minutes == '00':
 	print(number_to_words[hrs],number_to_words[minutes])
+elif minutes == '30':
+	print(number_to_words[minutes],number_to_words[hrs])
 elif int(minutes) < 30:
-	if minutes == '01':
+	if minutes == '01' or minutes == '1':
 		print(number_to_words[minutes],"minute past",number_to_words[hrs])
 	elif minutes == '15':
 		print(number_to_words[minutes],"past",number_to_words[hrs])
