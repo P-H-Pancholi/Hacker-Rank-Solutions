@@ -1,4 +1,6 @@
+import string
 size = int(input())
-pattern1 = ['-'*i for i in range(1,size*2)]
-pattern2 = pattern1[-1::-1]
-print("\n".join(pattern1),"\n".join(pattern2),sep = "")
+width = 4*(size-1) + 1
+alpha = string.ascii_lowercase
+for i in list(range(size))[::-1] + list(range(1, size)):
+    print('-'.join(alpha[size-1:i:-1] + alpha[i:size]).center(width, '-'))
