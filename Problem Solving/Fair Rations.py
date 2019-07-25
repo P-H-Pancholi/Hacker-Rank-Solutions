@@ -1,0 +1,36 @@
+
+def fairRations(B):
+	suml = 0;
+	current = -1
+	paired = -1
+	distance = 0
+	total = 0;
+
+	for i in B:
+		suml += i
+		if(i % 2 == 1 and current == -1):
+			current = i
+			paired = -1
+			distance = 0
+		elif(current != -1 and i % 2 == 1):
+			paired = i
+			current = -1
+			loavesNeeded = (2 + ((distance + 1) - 1) * 2)
+			total += loavesNeeded
+		else:
+			distance += 1
+
+	if(suml % 2 == 1):
+		return "NO"
+	else :
+		return total
+
+if __name__ == '__main__':
+
+	N = int(input())
+
+	B = list(map(int, input().rstrip().split()))
+
+	result = fairRations(B)
+
+	print(result)
