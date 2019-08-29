@@ -1,21 +1,23 @@
+from collections import Counter
 def happyLadybugs(b):
-    bSet = set(b)
-    for bug in bSet:
-        countbug = 0
-        countempty = 0
-        for checkbug in b:
-            if checkbug == "_":
-                countempty += 1
-                continue
-            if checkbug == bug:
-                countbug += 1
-            print(countbug)
-        if countbug == 1:
+    counter = Counter(b)
+    for key, value in counter.items():
+        if key != "_" and value == 1:
             return "NO"
-    if countempty:
+
+    if "_" in b:
         return "YES"
-    else:
-        return "NO"
+
+    for idx in range(1, len(b)):
+        if b[idx] == b[idx-1] or b[idx] == b[idx+1]:
+            continue
+        else:
+            return "NO"
+
+    return "YES"
+
+
+
 
 
 
