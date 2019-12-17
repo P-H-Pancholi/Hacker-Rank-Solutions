@@ -1,10 +1,5 @@
-t = int(input())
-n = 3
-i = n
-for _ in range(t-1):
-    if i == 1:
-        n *= 2
-        i = n+1
+def getValue(t):
+    return 6 * math.pow(2, math.floor(math.log2((t+2)/3))) - 2 - t
 
-    i -= 1
-print(i)
+t = in(input())
+getValue(t)
