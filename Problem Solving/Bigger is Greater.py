@@ -1,13 +1,23 @@
+def findNext(arr):
+	i = len(arr) - 1
+	while i > 0 and arr[i-1] >= arr[i]:
+		i -= 1
+	if i <= 0:
+		return False
+
+	j = len(arr) -1
+	#while arr[j] <= arr[i-1]:
+	#	j -= 1
+
+	arr[j],arr[i-1] = arr[i-1],arr[j]
+	arr[i : ] = arr[len(arr) - 1 : i - 1 : -1]
+	return True
+
+
 t = int(input())
-for test in range(t):
-	string = list(input())
-	for i in range(len(string) - 1, 0, -1):
-		char1 = string[i]
-		char2 = string[i - 1]
-		print("Comparing----->",char1,"<-->",char2)
-		if char1 >= char2:
-			temp = char1
-			string[i] = char2
-			string[i-1] = temp
-			break
-	print(string)
+for _ in range(t):
+	arr = list(input())
+	if findNext(arr):
+		print("".join(arr))
+	else:
+		print("no answer")
