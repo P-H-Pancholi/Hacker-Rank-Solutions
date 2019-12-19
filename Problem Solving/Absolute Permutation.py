@@ -1,23 +1,20 @@
 from itertools import permutations
 
 def findPremutation(n,k):
-    check = False
-    l = [i for i in range(1,n+1)]
-    list_of_permutations = list(permutations(l))
-    for permutation in list_of_permutations:
-        l = list(permutation)
-        #print("Checking for permutation",l,sep= "---")
-        for i in range(1,n+1):
-            #print("Checking for i,l[i-1] and l[i-1] - i", i, l[i-1] , l[i-1] - i, sep= "---")
-            if abs(l[i-1] - i) == k:
-                check =True
-                if i == n:
-                    return list(permutation)
-            else:
-                check = False
-                break
+    solution = []
+    s = set(range(1,n+1))
 
-    return [-1]
+    for pos in range(1, n+1):
+        if pos-k in s:
+            solution.append(pos-k)
+            s.remove(pos-k)
+        elif pos+k in s:
+            solution.append(pos+k)
+            s.remove(pos+k)
+        else:
+            return [-1]
+
+    return solution
 
 t = int(input())
 for _ in range(t):
