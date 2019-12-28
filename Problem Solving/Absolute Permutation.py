@@ -1,5 +1,4 @@
 from itertools import permutations
-import os
 
 def findPremutation(n,k):
     solution = []
