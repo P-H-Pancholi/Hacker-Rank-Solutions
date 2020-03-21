@@ -8,15 +8,15 @@ import sys
 
 # Complete the hackerrankInString function below.
 def hackerrankInString(s):
-    stk = [c for c in "knarrekcah"]
+    result = "not panagram"
+    stk = list("abcdefghijklmnopqrstuvwxyz")
     for c in s:
-        top = len(stk) - 1
-        if c == stk[top]:
-            stk.pop()
-            if len(stk) == 0:
-                print("YES")
-                break
-    print("NO")
+        if c.lower() in stk:
+            stk.remove(c.lower())
+        if len(stk) == 0:
+            result = "panagram"
+            break
+    return result
 
 
 if __name__ == '__main__':
@@ -27,3 +27,4 @@ if __name__ == '__main__':
         s = input()
 
         result = hackerrankInString(s)
+        print(result)
