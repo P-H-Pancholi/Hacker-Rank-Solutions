@@ -1,8 +1,5 @@
 m,n,r = map(int, input().split())
-matrix = []
-for _ in range(m):
-    matrix.append(list(input().split()))
-
+matrix = [input().split() for _ in range(m)]
 no_of_layers = min(m,n)//2
 
 for i in range(no_of_layers):
