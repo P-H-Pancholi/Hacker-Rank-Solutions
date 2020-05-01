@@ -10,38 +10,46 @@ import sys
 def morganAndString(a, b):
     a = list(a)
     b = list(b)
+
+    a.reverse()
+    b.reverse()
+
+    print(a,b)
     result = ""
 
     while(True):
+
         if len(a) == 0 and len(b) == 0:
             break
 
         if len(a) == 0:
-            result += "".join(b)
+            while len(b) > 0:
+                result += b.pop()
             break
 
         if len(b) == 0:
-            result += "".join(a)
+            while len(a) > 0:
+                result += a.pop()
             break
+        print(a,b)
 
-        if a[0] > b[0]:
-            result += b[0]
-            b.pop(0)
+        print(a[-1],b[-1])
+
+
+        if a[-1] > b[-1]:
+            result += b.pop()
             continue
 
-        if b[0] > a[0]:
-            result += a[0]
-            a.pop(0)
+        if b[-1] > a[-1]:
+            result += a.pop()
             continue
 
-        if a[0] == b[0]:
-            if a[1:] > b[1:]:
-                result += b[0]
-                b.pop(0)
+        if a[-1] == b[-1]:
+            if a[-2::-1] > b[-2::-1]:
+                result += b.pop()
                 continue
             else:
-                result += a[0]
-                a.pop(0)
+                result += a.pop()
                 continue
 
 
